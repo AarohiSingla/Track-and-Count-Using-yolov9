@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CarFlow.</div>
+        <nav>
+            <ul>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="signup">Sign up</a>
+    </header>
+    <main>
+        <section class="intro-section">
+            <p class="intro-text">Welcome to Trackdown, where our innovative platform utilizes computer vision technology to facilitate vehicle tracking, vehicle counting, and the detection and identification of speeding vehicles. Additionally, we offer an API integration option, enabling seamless incorporation into your website for enhanced functionality.</p>
+        </section>
+        <section class="upload-section">
+            <div class="upload-box">
+                <div class="upload-area" ondragover="dragoverHandler(event)" ondrop="dropHandler(event)">
+                    <p>Browse or Drag and Drop The File MP4, MOV</p>
+                    <button class="upload-button" onclick="openFileExplorer()">
+                        <span>+</span> Upload Video
+                    </button>
+                    <input type="file" id="fileInput" accept="video/mp4,video/quicktime" style="display: none;" onchange="handleFileInput(event)">
+                </div>
+            </div>
+        </section>
+        <section class="drawing-section">
+            <p>Draw the detection line on the image:</p>
+            <div id="drawingContainer" class="preview-box">
+                
+                <canvas id="canvas"></canvas>
+            </div>
+            <div style="margin-top:5px">
+                <span>Size: </span>
+                <input type="range" min="1" max="50" value="10" class="size" id="sizeRange"/>
+            </div>
+            <div class="color-palette">
+                <div class="color-option" data-color="#F5F5F5" style="background-color: #F5F5F5;"></div>
+                <div class="color-option" data-color="#C0C0C0" style="background-color: #C0C0C0;"></div>
+                <div class="color-option" data-color="#ADD8E6" style="background-color: #ADD8E6;"></div>
+                <div class="color-option" data-color="#87CEEB" style="background-color: #87CEEB;"></div>
+                <div class="color-option" data-color="#FF0000" style="background-color: #FF0000;"></div>
+                <div class="color-option" data-color="#FFA500" style="background-color: #FFA500;"></div>
+                <div class="color-option" data-color="#FFFF00" style="background-color: #FFFF00;"></div>
+                <div class="color-option" data-color="#008000" style="background-color: #008000;"></div>
+            </div>
+            
+            <div class="button-container" style="width: 100%;">
+                <button id="clear" class="button">Clear</button>
+                <button id="export" class="button">Export Image</button>
+                <button id="processButton" class="button">Process</button>
+            </div>
+        </section>
+        <div class="space" style="width: 100%; height:50px;">
+        </div>
+        <div id="video-section">
+            <video width="600" controls>
+                <source src="/tutorial/tutorial.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
